@@ -13,7 +13,9 @@
         "filament/filament": "^3.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
-        "spatie/laravel-ignition": "^2.8"
+        "saade/filament-adjacency-list": "^3.2",
+        "spatie/laravel-ignition": "^2.8",
+        "staudenmeir/laravel-adjacency-list": "^1.22"
     },
     "require-dev": {
         "laravel/pint": "^1.13",
