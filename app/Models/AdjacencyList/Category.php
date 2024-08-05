@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 #[ScopedBy(UserScope::class)]
+/**
+ * @mixin IdeHelperCategory
+ */
 class Category extends Model
 {
     use HasFactory;

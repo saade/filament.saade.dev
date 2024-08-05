@@ -26,6 +26,17 @@ class Register extends BaseRegister
         parent::mount();
     }
 
+    public function getRegisterFormAction(): Action
+    {
+        return parent::getRegisterFormAction()
+            ->label('Sign up with a random account');
+    }
+
+    public function afterRegister(): void
+    {
+        Artisan::call('app:seed-fresh-data', ['user' => $this->record->id]);
+    }
+
     protected function getNameFormComponent(): Component
     {
         return parent::getNameFormComponent()
@@ -54,19 +65,8 @@ class Register extends BaseRegister
             ->default($this->password);
     }
 
-    public function getRegisterFormAction(): Action
-    {
-        return parent::getRegisterFormAction()
-            ->label('Sign up with a random account');
-    }
-
     protected function handleRegistration(array $data): User
     {
         return $this->record = parent::handleRegistration($data);
-    }
-
-    public function afterRegister(): void
-    {
-        Artisan::call('app:seed-fresh-data', ['user' => $this->record->id]);
     }
 }
